@@ -26,6 +26,27 @@ Includes model training, Streamlit app, and a web version with HTML/CSS/JS + Nod
 - Streamlit, Joblib  
 - HTML, CSS, JavaScript, Node.js
 
+## 🏍️ Supported Royal Enfield Models
+
+- Classic 350
+- Bullet 350
+- Himalayan
+- Meteor 350
+- Hunter 350
+- Continental GT 650
+- INT 650
+- Scram 411
+- Guerrilla 450
+- Himalayan 450
+- Super Meteor 650
+- Bullet 650
+- Goan Classic 350
+- Bear 650
+- Shotgun 650
+- Scrambler 450
+- Himalayan 750
+- Flying Flea
+- Interceptor 650
 
 
 
