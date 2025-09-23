@@ -1,0 +1,571 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: #1a2a6c;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-clip: text;
+    background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #1a2a6c;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+/* Main Content */
+main {
+    margin-bottom: 30px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    color: #1a2a6c;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h2 i {
+    color: #b21f1f;
+}
+
+/* Input Section */
+.input-section .form-group {
+    margin-bottom: 20px;
+}
+
+.input-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.required {
+    color: #b21f1f;
+    font-weight: bold;
+}
+
+.input-section select,
+.input-section input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fff;
+}
+
+.input-section select:focus,
+.input-section input:focus {
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.2);
+    outline: none;
+}
+
+.input-section select:hover,
+.input-section input:hover {
+    border-color: #b21f1f;
+}
+
+.predict-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.predict-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(178, 31, 31, 0.4);
+}
+
+.predict-btn:active {
+    transform: translateY(0);
+}
+
+/* Results Section */
+.result-card h3 {
+    color: #1a2a6c;
+    margin-bottom: 15px;
+}
+
+.price-display {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b21f1f;
+    margin: 10px 0;
+}
+
+.depreciation-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.metric {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.metric-label {
+    display: block;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a2a6c;
+}
+
+.metric-value.negative {
+    color: #b21f1f;
+}
+
+.bike-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.bike-details h3 {
+    margin-bottom: 15px;
+    color: #1a2a6c;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.detail-value {
+    color: #1a2a6c;
+    font-weight: 500;
+}
+
+/* Model Info Card */
+.pros-cons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.pros-section h3,
+.cons-section h3 {
+    color: #1a2a6c;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pros-section h3 i {
+    color: #28a745;
+}
+
+.cons-section h3 i {
+    color: #dc3545;
+}
+
+.pros-cons-container ul {
+    padding-left: 20px;
+}
+
+.pros-cons-container li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.pros-cons-container li:before {
+    content: "•";
+    color: #1a2a6c;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Insights Card */
+.insights-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.insight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #1a2a6c;
+}
+
+.insight-item i {
+    color: #1a2a6c;
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-content p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    color: #888 !important;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .input-section {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .results-section {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .depreciation-info {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .pros-cons-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .insights-content {
+        grid-template-columns: 1fr;
+    }
+    
+    body {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding: 30px;
+    }
+    
+    header {
+        padding: 40px;
+    }
+    
+    .card {
+        padding: 30px;
+    }
+    
+    header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .price {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 20px 15px;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .depreciation-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .pros-cons-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+    
+    .metric {
+        padding: 12px;
+    }
+    
+    .bike-details {
+        padding: 15px;
+    }
+    
+    footer {
+        padding: 20px 15px;
+    }
+    
+    .content-wrapper {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+    
+    header {
+        padding: 15px 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .price {
+        font-size: 1.8rem;
+    }
+    
+    .predict-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Animation for results */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-card, .model-info-card, .insights-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #b21f1f, #1a2a6c);
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+        animation: none;
+    }
+    
+    header, .card, footer {
+        background: white;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .predict-btn, #loadingIndicator {
+        display: none;
+    }
+    
+    .result-card, .model-info-card, .insights-card {
+        page-break-inside: avoid;
+    }
+}

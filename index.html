@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Predict the resale value of your Royal Enfield motorcycle with precision using our advanced machine learning model.">
+    <meta name="keywords" content="Royal Enfield, Bike Price, Price Prediction, Motorcycle, Resale Value, Machine Learning">
+    <meta name="author" content="Data Science Team">
+    <title>Royal Enfield Bike Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏍️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏍️</text></svg>">
+</head>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <h1>Royal Enfield Price Predictor</h1>
+            </div>
+            <p class="tagline">Predict the resale value of your Royal Enfield motorcycle with precision</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="content-wrapper">
+                <!-- Input Form Section -->
+                <section class="input-section">
+                    <div class="card">
+                        <h2><i class="fas fa-sliders-h"></i> Bike Details</h2>
+                        <form id="predictionForm" autocomplete="off">
+                            <div class="form-group">
+                                <label for="model">Model <span class="required">*</span></label>
+                                <select id="model" name="model" required>
+                                    <option value="">Select Model</option>
+                                    <option value="Classic 350">Classic 350</option>
+                                    <option value="Bullet 350">Bullet 350</option>
+                                    <option value="Himalayan">Himalayan</option>
+                                    <option value="Meteor 350">Meteor 350</option>
+                                    <option value="Hunter 350">Hunter 350</option>
+                                    <option value="Continental GT 650">Continental GT 650</option>
+                                    <option value="INT 650">INT 650</option>
+                                    <option value="Scram 411">Scram 411</option>
+                                    <option value="Guerrilla 450">Guerrilla 450</option>
+                                    <option value="Himalayan 450">Himalayan 450</option>
+                                    <option value="Super Meteor 650">Super Meteor 650</option>
+                                    <option value="Bullet 650">Bullet 650</option>
+                                    <option value="Goan Classic 350">Goan Classic 350</option>
+                                    <option value="Bear 650">Bear 650</option>
+                                    <option value="Shotgun 650">Shotgun 650</option>
+                                    <option value="Scrambler 450">Scrambler 450</option>
+                                    <option value="Himalayan 750">Himalayan 750</option>
+                                    <option value="Flying Flea">Flying Flea</option>
+                                    <option value="Interceptor 650">Interceptor 650</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="year">Year of Manufacture <span class="required">*</span></label>
+                                <input type="number" id="year" name="year" min="2000" max="2025" placeholder="e.g., 2020" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="presentPrice">Present Price (Lakhs) <span class="required">*</span></label>
+                                <input type="number" id="presentPrice" name="presentPrice" step="0.1" min="0.1" max="10" placeholder="2.0" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kmsDriven">Kms Driven <span class="required">*</span></label>
+                                <input type="number" id="kmsDriven" name="kmsDriven" min="0" max="100000" placeholder="10000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="owner">Owner Type <span class="required">*</span></label>
+                                <select id="owner" name="owner" required>
+                                    <option value="">Select Owner Type</option>
+                                    <option value="First">First</option>
+                                    <option value="Second">Second</option>
+                                    <option value="Third">Third</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="transmission">Transmission <span class="required">*</span></label>
+                                <select id="transmission" name="transmission" required>
+                                    <option value="">Select Transmission</option>
+                                    <option value="Manual">Manual</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="predict-btn">
+                                <i class="fas fa-calculator"></i> Predict Price
+                                <span id="loadingIndicator" class="loading" style="display: none;"></span>
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section">
+                    <div class="card result-card" id="resultCard" style="display: none;">
+                        <h2><i class="fas fa-chart-line"></i> Prediction Results</h2>
+                        <div class="result-content">
+                            <div class="price-display">
+                                <h3>Estimated Resale Price</h3>
+                                <div class="price">₹ <span id="predictedPrice">0.00</span> Lakhs</div>
+                            </div>
+                            
+                            <div class="depreciation-info">
+                                <div class="metric">
+                                    <span class="metric-label">Depreciation</span>
+                                    <span class="metric-value" id="depreciationValue">0%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Value Loss</span>
+                                    <span class="metric-value negative" id="valueLoss">₹ 0.00 Lakhs</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bike-details">
+                                <h3>Bike Details</h3>
+                                <div class="detail-item">
+                                    <span class="detail-label">Model:</span>
+                                    <span class="detail-value" id="resultModel">-</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Age:</span>
+                                    <span class="detail-value" id="resultAge">- years</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Kms Driven:</span>
+                                    <span class="detail-value" id="resultKms">- km</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Owner:</span>
+                                    <span class="detail-value" id="resultOwner">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Model Information Section -->
+                    <div class="card model-info-card" id="modelInfoCard" style="display: none;">
+                        <h2><i class="fas fa-info-circle"></i> <span id="modelName">Model</span> - Pros & Cons</h2>
+                        <div class="pros-cons-container">
+                            <div class="pros-section">
+                                <h3><i class="fas fa-thumbs-up"></i> Pros</h3>
+                                <ul id="prosList">
+                                    <!-- Pros will be populated by JavaScript -->
+                                </ul>
+                            </div>
+                            <div class="cons-section">
+                                <h3><i class="fas fa-thumbs-down"></i> Cons</h3>
+                                <ul id="consList">
+                                    <!-- Cons will be populated by JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insights Section -->
+                    <div class="card insights-card" id="insightsCard" style="display: none;">
+                        <h2><i class="fas fa-lightbulb"></i> Insights</h2>
+                        <div class="insights-content">
+                            <div class="insight-item" id="ageInsight">
+                                <i class="fas fa-calendar-alt"></i>
+                                <p id="ageInsightText">-</p>
+                            </div>
+                            <div class="insight-item" id="kmsInsight">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <p id="kmsInsightText">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>Royal Enfield Price Predictor &copy; 2025 | Data Science Project</p>
+                <p class="disclaimer">This tool provides estimated values based on historical data and machine learning algorithms.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+Model,Year,Present_Price,Kms_Driven,Owner,Transmission,Selling_Price
+Classic 350,2018,1.50,25000,First,Manual,1.20
+Bullet 350,2015,1.70,35000,First,Manual,1.30
+Himalayan,2019,2.20,15000,First,Manual,1.90
+Meteor 350,2020,2.00,10000,First,Manual,1.75
+Hunter 350,2021,1.80,8000,First,Manual,1.60
+Classic 350,2017,1.40,40000,Second,Manual,1.00
+Bullet 350,2016,1.65,30000,First,Manual,1.25
+Himalayan,2018,2.10,22000,First,Manual,1.70
+Meteor 350,2019,1.95,18000,Second,Manual,1.50
+Hunter 350,2020,1.75,12000,First,Manual,1.50
+Classic 350,2016,1.35,45000,Second,Manual,0.90
+Bullet 350,2014,1.60,50000,Second,Manual,1.10
+Himalayan,2017,2.00,30000,First,Manual,1.60
+Meteor 350,2018,1.90,25000,Second,Manual,1.40
+Hunter 350,2019,1.70,20000,Second,Manual,1.35
+Classic 350,2015,1.30,55000,Third,Manual,0.80
+Bullet 350,2013,1.50,60000,Second,Manual,1.00
+Himalayan,2016,1.90,35000,Second,Manual,1.45
+Meteor 350,2017,1.85,28000,First,Manual,1.55
+Hunter 350,2018,1.65,22000,First,Manual,1.40
+Classic 350,2019,1.55,5000,First,Manual,1.40
+Bullet 350,2017,1.68,18000,First,Manual,1.35
+Himalayan,2020,2.25,8000,First,Manual,2.00
+Meteor 350,2021,2.05,6000,First,Manual,1.85
+Hunter 350,2022,1.85,4000,First,Manual,1.70
+Classic 350,2014,1.25,65000,Third,Manual,0.75
+Bullet 350,2012,1.40,70000,Third,Manual,0.90
+Himalayan,2015,1.80,40000,Second,Manual,1.30
+Meteor 350,2016,1.80,32000,Second,Manual,1.45
+Hunter 350,2017,1.60,28000,Second,Manual,1.25
+Continental GT 650,2020,2.80,12000,First,Manual,2.50
+Continental GT 650,2019,2.70,18000,First,Manual,2.30
+INT 650,2021,2.90,10000,First,Manual,2.60
+INT 650,2020,2.80,15000,First,Manual,2.40
+Scram 411,2022,2.10,8000,First,Manual,1.90
+Scram 411,2021,2.00,12000,First,Manual,1.75
+Guerrilla 450,2023,2.50,5000,First,Manual,2.40
+Himalayan 450,2023,2.70,6000,First,Manual,2.50
+Super Meteor 650,2022,3.00,7000,First,Manual,2.70
+Super Meteor 650,2021,2.90,10000,First,Manual,2.50
+Bullet 650,2023,2.80,5000,First,Manual,2.60
+Goan Classic 350,2022,1.90,8000,First,Manual,1.70
+Bear 650,2023,3.20,4000,First,Manual,3.00
+Shotgun 650,2023,3.10,5000,First,Manual,2.90
+Scrambler 450,2024,2.60,3000,First,Manual,2.50
+Himalayan 750,2024,3.50,2000,First,Manual,3.30
+Flying Flea,2024,2.30,4000,First,Manual,2.10
+Interceptor 650,2023,2.80,6000,First,Manual,2.60
+Interceptor 650,2022,2.70,9000,First,Manual,2.40

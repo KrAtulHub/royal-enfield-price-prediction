@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test All Models - Royal Enfield Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .test-results {
+            margin: 20px 0;
+        }
+        .model-result {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .model-result.pass {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .model-result.fail {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .model-result .status {
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        .status.pass {
+            background-color: #28a745;
+            color: white;
+        }
+        .status.fail {
+            background-color: #dc3545;
+            color: white;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #007bff;
+            transition: width 0.3s;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .summary {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <h1>Test All Models</h1>
+            </div>
+            <p class="tagline">Testing all Royal Enfield models for proper functionality</p>
+        </header>
+
+        <!-- Test Section -->
+        <main>
+            <div class="content-wrapper">
+                <section class="input-section">
+                    <div class="card">
+                        <h2><i class="fas fa-vial"></i> Model Testing</h2>
+                        
+                        <button id="startTest">Start Testing All Models</button>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                        <div id="progressText">0/19 models tested</div>
+                        
+                        <div class="summary" id="summary" style="display: none;">
+                            <h3>Test Summary</h3>
+                            <p>Total Models: <span id="totalCount">0</span></p>
+                            <p>Passed: <span id="passCount" class="success">0</span></p>
+                            <p>Failed: <span id="failCount" class="error">0</span></p>
+                        </div>
+                        
+                        <div class="test-results" id="testResults"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // List of all models
+        const allModels = [
+            "Classic 350", "Bullet 350", "Himalayan", "Meteor 350", "Hunter 350",
+            "Continental GT 650", "INT 650", "Scram 411", "Guerrilla 450", "Himalayan 450",
+            "Super Meteor 650", "Bullet 650", "Goan Classic 350", "Bear 650", "Shotgun 650",
+            "Scrambler 450", "Himalayan 750", "Flying Flea", "Interceptor 650"
+        ];
+
+        // Start testing when button is clicked
+        document.getElementById('startTest').addEventListener('click', function() {
+            startTesting();
+        });
+
+        // Start testing all models
+        async function startTesting() {
+            const testResults = document.getElementById('testResults');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const summary = document.getElementById('summary');
+            const totalCount = document.getElementById('totalCount');
+            const passCount = document.getElementById('passCount');
+            const failCount = document.getElementById('failCount');
+            
+            // Clear previous results
+            testResults.innerHTML = '';
+            summary.style.display = 'none';
+            
+            let passed = 0;
+            let failed = 0;
+            
+            // Update total count
+            totalCount.textContent = allModels.length;
+            passCount.textContent = passed;
+            failCount.textContent = failed;
+            
+            // Test each model
+            for (let i = 0; i < allModels.length; i++) {
+                const model = allModels[i];
+                
+                // Test the model
+                const result = await testModel(model);
+                
+                // Create result element
+                const resultDiv = document.createElement('div');
+                resultDiv.className = `model-result ${result.success ? 'pass' : 'fail'}`;
+                
+                const statusSpan = document.createElement('span');
+                statusSpan.className = `status ${result.success ? 'pass' : 'fail'}`;
+                statusSpan.textContent = result.success ? 'PASS' : 'FAIL';
+                
+                resultDiv.innerHTML = `<span>${model}</span>`;
+                resultDiv.appendChild(statusSpan);
+                
+                testResults.appendChild(resultDiv);
+                
+                // Update counters
+                if (result.success) {
+                    passed++;
+                } else {
+                    failed++;
+                }
+                
+                // Update progress
+                const progress = ((i + 1) / allModels.length) * 100;
+                progressFill.style.width = `${progress}%`;
+                progressText.textContent = `${i + 1}/${allModels.length} models tested`;
+                
+                // Update summary
+                passCount.textContent = passed;
+                failCount.textContent = failed;
+                
+                // Show summary after first test
+                if (i === 0) {
+                    summary.style.display = 'block';
+                }
+                
+                // Scroll to bottom
+                testResults.scrollTop = testResults.scrollHeight;
+            }
+        }
+
+        // Test a single model
+        async function testModel(model) {
+            try {
+                // Send test request to server
+                const response = await fetch('/test-model', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: model,
+                        year: "2020",
+                        presentPrice: "2.0",
+                        kmsDriven: "10000",
+                        owner: "First",
+                        transmission: "Manual"
+                    })
+                });
+                
+                const result = await response.json();
+                
+                return {
+                    success: result.success,
+                    message: result.message
+                };
+            } catch (error) {
+                return {
+                    success: false,
+                    message: error.message
+                };
+            }
+        }
+    </script>
+</body>
+</html>

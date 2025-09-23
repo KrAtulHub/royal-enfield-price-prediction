@@ -1,0 +1,84 @@
+{
+  "model": {
+    "coef": [
+      -0.00248762455776839,
+      -0.024127652271782173,
+      -3.153788707863136e-06,
+      -0.034851980562803295,
+      0.0,
+      0.9175974362049409
+    ],
+    "intercept": 0.09230093787319227,
+    "feature_names": [
+      "Model_encoded",
+      "Bike_Age",
+      "Kms_Driven",
+      "Owner_encoded",
+      "Transmission_encoded",
+      "Present_Price"
+    ]
+  },
+  "mappings": {
+    "model_mapping": {
+      "Bear 650": 0,
+      "Bullet 350": 1,
+      "Bullet 650": 2,
+      "Classic 350": 3,
+      "Continental GT 650": 4,
+      "Flying Flea": 5,
+      "Goan Classic 350": 6,
+      "Guerrilla 450": 7,
+      "Himalayan": 8,
+      "Himalayan 450": 9,
+      "Himalayan 750": 10,
+      "Hunter 350": 11,
+      "INT 650": 12,
+      "Interceptor 650": 13,
+      "Meteor 350": 14,
+      "Scram 411": 15,
+      "Scrambler 450": 16,
+      "Shotgun 650": 17,
+      "Super Meteor 650": 18
+    },
+    "owner_mapping": {
+      "First": 0,
+      "Second": 1,
+      "Third": 2
+    },
+    "transmission_mapping": {
+      "Manual": 0
+    }
+  },
+  "metadata": {
+    "current_year": 2025,
+    "supported_models": [
+      "Classic 350",
+      "Bullet 350",
+      "Himalayan",
+      "Meteor 350",
+      "Hunter 350",
+      "Continental GT 650",
+      "INT 650",
+      "Scram 411",
+      "Guerrilla 450",
+      "Himalayan 450",
+      "Super Meteor 650",
+      "Bullet 650",
+      "Goan Classic 350",
+      "Bear 650",
+      "Shotgun 650",
+      "Scrambler 450",
+      "Himalayan 750",
+      "Flying Flea",
+      "Interceptor 650"
+    ],
+    "supported_owners": [
+      "First",
+      "Second",
+      "Third"
+    ],
+    "supported_transmissions": [
+      "Manual"
+    ]
+  }
+}
