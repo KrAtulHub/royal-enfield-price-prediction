@@ -3,8 +3,7 @@
 A machine learning project to predict the resale price of Royal Enfield motorcycles.  
 Includes model training, Streamlit app, and a web version with HTML/CSS/JS + Node.js.  
 
-## 🔗 Project Link
-👉 [Check out](https://royal-enfield-price-predicion-e08d8c.netlify.app/)
+## 🔗 Project Link 👉 [Check out](https://royal-enfield-price-predicion-e08d8c.netlify.app/)
 
 ## 🚀 Features
 - Predict Royal Enfield bike resale prices  
